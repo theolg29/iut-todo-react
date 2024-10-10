@@ -5,21 +5,25 @@ import { useRef } from "react";
 
 function AddTask({ onAdd }) {
 
-    // const [input, setInput] = useState("");
+    // Commenter si on utlise l'API
+    const [input, setInput] = useState("");
 
     const inputRef = useRef("");
 
-    
-
     const handleChange = (event) => {
-       // setInput(event.target.value);
-       inputRef.current = event.target.value;
+        // Commenter si on utlise l'API
+        setInput(event.target.value);
+        inputRef.current = event.target.value;
     }
 
     const handleAdd = () => {
         onAdd({
-            // name: input,
-            name: title,
+
+            // Avec useState
+            name: input,
+
+            // Avec API
+            // name: title,
             // name: input.current,
             completed: false,
             id: getId(),

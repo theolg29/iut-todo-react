@@ -1,41 +1,50 @@
-import { Link } from 'raviger'
-
+import { Pencil1Icon, TrashIcon } from "@radix-ui/react-icons";
+import { Button, Flex } from "@radix-ui/themes";
+import { Link } from "raviger";
 
 const Task = ({ task, onDelete, onCheck }) => {
-
-
-return (
+  return (
     <>
-    <div>
-    <li
-        style={{ textDecoration: task.completed ? "line-through" : "", listStyle: "none" }}
-        key={task.id}
-    >
-        <input
+      <Flex m="2">
+        <li
+          style={{
+            textDecoration: task.completed ? "line-through" : "",
+            listStyle: "none",
+          }}
+          key={task.id}
+        >
+          <input
             type="checkbox"
             defaultChecked={task.completed}
             onChange={(evt) => {
-                onCheck(task.id, evt.target.checked);
+              onCheck(task.id, evt.target.checked);
             }}
-            
-        />
-        
-        <button onClick={() => {onDelete(task.id);}}>Delete</button>
-        
-        {/* Avec le useState */}
-        {task.name}
+          />
 
-        {/* Avec l'API */}
-        {/* {task.title} */}
+          <Button
+            onClick={() => {
+              onDelete(task.id);
+            }}
+          >
+            <TrashIcon />
+          </Button>
 
-    </li>
+          {/* Avec le useState */}
+          {task.name}
 
-    <Link href={`/edit/${task.id}`}>Edit</Link>
-    
-    </div>
-    
+          {/* Avec l'API */}
+          {/* {task.title} */}
+        </li>
+
+        <Flex gap="5">
+          <Link href={`/edit/${task.id}`}>
+            <Pencil1Icon />
+            Edit
+          </Link>
+        </Flex>
+      </Flex>
     </>
-);
+  );
 };
 
 export default Task;

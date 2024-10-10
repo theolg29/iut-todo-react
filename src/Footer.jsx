@@ -1,6 +1,5 @@
 function Footer() {
 
-
   return (
     <>
       <footer>

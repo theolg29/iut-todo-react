@@ -1,4 +1,4 @@
-import { useRoutes, Link, useQueryParams } from 'raviger'
+import { useRoutes } from 'raviger'
 import App from './App';
 import EditTask from './components/EditTask';
 
@@ -6,8 +6,6 @@ const routes = {
     '/': () => <App />,
     '/edit/:taskId': ({ taskId }) => <EditTask id={taskId} />
   }
-
-
 
 const Router = () => {
 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import getId from '../utils/getId'
 import { useRef } from "react";
+import { Button, Flex } from "@radix-ui/themes";
+import { PlusIcon } from "@radix-ui/react-icons";
 
 
 function AddTask({ onAdd }) {
@@ -32,10 +34,12 @@ function AddTask({ onAdd }) {
 
     return (
         <>
-            <div>
+            <Flex gap="4">
             <input type="text" onChange={handleChange} />
-            <button onClick={handleAdd}>Add task</button>
-            </div>
+            <Button onClick={handleAdd}>
+                <PlusIcon ></PlusIcon>
+                Add task</Button>
+            </Flex>
         </>
     );
 }
